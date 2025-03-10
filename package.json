@@ -4,6 +4,7 @@
   "description": "A clone of food delivery app",
   "scripts": {
     "test": "jest",
+    "dev": "npx parcel src/index.html",
     "predeploy": "npx parcel build src/index.html",
     "deploy": "gh-pages -d dist"
   },
@@ -16,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/CBD-4sure/Tomato/issues"
   },
-  "homepage": "https://CBD-4sure.github.io/Tomato",
+  "homepage": "https://cbd-4sure.github.io/Tomato",
   "devDependencies": {
     "eslint": "^9.22.0",
     "eslint-plugin-react": "^7.37.4",
