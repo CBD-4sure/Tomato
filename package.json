@@ -4,8 +4,7 @@
   "description": "A clone of food delivery app",
   "scripts": {
     "test": "jest",
-    "build": "npx parcel build src/index.html",
-    "predeploy": "npm run build",
+    "predeploy": "npx run build src/index.html",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
