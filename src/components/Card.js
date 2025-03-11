@@ -1,28 +1,36 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
-
-
-export default function Card({resCard}) {
-
-    const {image,name,rating,cuisine,cft,locality} = resCard.info
+import { imgUrl } from "../utils/data";
+export default function Card({ resCard }) {
+	const {
+		cloudinaryImageId,
+		name,
+		avgRatingString,
+		cuisines,
+		costForTwo,
+		locality,
+		sla,
+	} = resCard.info;
 
 	return (
 		<div className="card">
 			<div className="img">
-				<img src={image.url}></img>
+				<img src={imgUrl + cloudinaryImageId}></img>
 			</div>
 			<div className="res">
 				<div className="resinfo">
-					<div><strong>{name}</strong></div>
-					<div>{rating.rating_text}</div>
+					<div>
+						<strong>{name}</strong>
+					</div>
+					<div>{avgRatingString}</div>
 				</div>
 				<div className="resinfo">
-					<div>{cuisine[0].name}</div>
-					<div>{cft.text}</div>
+					<div>{cuisines[0]}</div>
+					<div>{costForTwo}</div>
 				</div>
 				<div className="resinfo">
-					<div>{locality.name}</div>
-					<div>{resCard.distance}</div>
+					<div>{locality}</div>
+					<div>{sla.lastMileTravelString}</div>
 				</div>
 			</div>
 		</div>

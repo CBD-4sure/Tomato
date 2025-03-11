@@ -1,6 +1,9 @@
 /* eslint-disable react/react-in-jsx-scope */
+import { useState } from "react";
 import logo from "../assets/image.png";
 export default function Header() {
+	const [btnLogin, setBtnLogin] = useState("Login");
+
 	return (
 		<div className="header">
 			<div className="logo">
@@ -14,12 +17,17 @@ export default function Header() {
 					}}
 				></img>
 			</div>
-			<div className="searchbar">
-				<input type="text" placeholder="search"></input>
-				<button>Search</button>
-			</div>
+			
 			<div className="login">
-				<a>Login</a>
+				<button
+					onClick={() => {
+						btnLogin === "Login"
+							? setBtnLogin("Logout")
+							: setBtnLogin("Login");
+					}}
+				>
+					{btnLogin}
+				</button>
 			</div>
 		</div>
 	);
