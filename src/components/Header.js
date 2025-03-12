@@ -8,15 +8,17 @@ export default function Header() {
 	return (
 		<div className="header">
 			<div className="logo">
-				<img
-					src={logo}
-					alt="logo"
-					style={{
-						width: "100%",
-						height: "100%",
-						objectFit: "cover",
-					}}
-				></img>
+				<Link to={"/"}>
+					<img
+						src={logo}
+						alt="logo"
+						style={{
+							width: "100%",
+							height: "100%",
+							objectFit: "cover",
+						}}
+					></img>
+				</Link>
 			</div>
 
 			<div className="login">

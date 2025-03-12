@@ -6,6 +6,7 @@ import About from "./About";
 import Contact from "./Contact";
 import Error from "./Error";
 import Body from "./components/Body";
+import Menu from "./Menu";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -17,6 +18,7 @@ root.render(
 					<Route index element={<Body />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/contact" element={<Contact />} />
+					<Route path="/restaurant/:resId" element={<Menu/>} />
 				</Route>
 				<Route path="*" element={<Error />} />
 			</Routes>

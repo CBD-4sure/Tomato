@@ -109,3 +109,89 @@
     padding: 10px;
     border-radius: 10px;
 }
+
+.menupage {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.menures {
+    width: 1080px;
+    height: 300px;
+    background-color: lightgray;
+    border-radius: 15px;
+}
+
+.menuresContainer {
+    border: 1px solid orange;
+    border-radius: 10px;
+    background-color: white;
+    margin: 20px;
+    height: 260px;
+    padding-left: 20px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgres {
+    width: 329px;
+    height: 230px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.imgres>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menurestext {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+
+.menuitems {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.menuCard {
+    width: 1000px;
+    height: 230px;
+}
+
+.line {
+    border: 2px solid lightgray;
+
+}
+
+.item {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.subitem {
+    width: 700px;
+    padding-right: 20px;
+}
+
+.itemhead {
+    align-self: start;
+    padding-left: 50px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    width: 1030px;
+}
+.cardTag{
+    text-decoration: none;
+    color: black;
+}

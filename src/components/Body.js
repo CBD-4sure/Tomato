@@ -2,6 +2,7 @@ import Card from "./Card";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { URL } from "../utils/data";
+import { Link } from "react-router";
 /* eslint-disable react/react-in-jsx-scope */
 export default function Body() {
 	const [data, setData] = useState([]);
@@ -65,7 +66,8 @@ export default function Body() {
 			</div>
 			<div className="cardholder">
 				{filData.map((rescard) => (
-					<Card key={rescard.info.id} resCard={rescard} />
+					<Link className="cardTag" to={"/restaurant/"+rescard.info.id} key={rescard.info.id}><Card  resCard={rescard} /></Link>
+					
 				))}
 			</div>
 		</div>
