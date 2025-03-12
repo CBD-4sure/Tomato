@@ -1,6 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { useState } from "react";
 import logo from "../assets/image.png";
+import { Link } from "react-router";
 export default function Header() {
 	const [btnLogin, setBtnLogin] = useState("Login");
 
@@ -17,17 +18,28 @@ export default function Header() {
 					}}
 				></img>
 			</div>
-			
+
 			<div className="login">
-				<button
-					onClick={() => {
-						btnLogin === "Login"
-							? setBtnLogin("Logout")
-							: setBtnLogin("Login");
-					}}
-				>
-					{btnLogin}
-				</button>
+				<div>
+					<Link to={"/"}>Home</Link>
+				</div>
+				<div>
+					<Link to={"/contact"}>Contact</Link>
+				</div>
+				<div>
+					<Link to={"/about"}>About</Link>
+				</div>
+				<div>
+					<button
+						onClick={() => {
+							btnLogin === "Login"
+								? setBtnLogin("Logout")
+								: setBtnLogin("Login");
+						}}
+					>
+						{btnLogin}
+					</button>
+				</div>
 			</div>
 		</div>
 	);

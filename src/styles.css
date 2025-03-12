@@ -23,6 +23,8 @@
 }
 
 .login {
+    display: flex;
+    gap: 10px;
     cursor: pointer;
     margin-right: 20px;
 }
