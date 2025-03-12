@@ -8,7 +8,6 @@ export default function Body() {
 	const [data, setData] = useState([]);
 	const [filData, setFilData] = useState([]);
 	const [searchText, setSearchText] = useState("");
-
 	useEffect(() => {
 		async function fetchData() {
 			try {
@@ -66,8 +65,13 @@ export default function Body() {
 			</div>
 			<div className="cardholder">
 				{filData.map((rescard) => (
-					<Link className="cardTag" to={"/restaurant/"+rescard.info.id} key={rescard.info.id}><Card  resCard={rescard} /></Link>
-					
+					<Link
+						className="cardTag"
+						to={"/restaurant/" + rescard.info.id}
+						key={rescard.info.id}
+					>
+						<Card resCard={rescard} />
+					</Link>
 				))}
 			</div>
 		</div>

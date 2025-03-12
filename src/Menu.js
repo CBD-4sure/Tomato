@@ -20,7 +20,7 @@ export default function () {
 	const menuList =
 		menudata?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
 			?.card?.card?.itemCards;
-	console.log(menuList);
+	console.log(menudata);
 	const menuRes = menudata?.data?.cards[2]?.card?.card?.info;
 	console.log(menuRes);
 	return menudata === null ? (
@@ -50,7 +50,7 @@ export default function () {
 				<div className="itemhead">
 					<h2> Top Recommended</h2>
 				</div>
-				{menuList.map((item) => (
+				{menuList?.map((item) => (
 					<MenuCard key={item.card.info.id} menuItem={item} />
 				))}
 			</div>
