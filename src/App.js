@@ -4,7 +4,7 @@ import Header from "./components/Header";
 
 export default function App() {
 	return (
-		<div id="home">
+		<div id="home" className="flex flex-col items-center bg-orange-40">
 			<Header />
 			<Outlet />
 			<div>

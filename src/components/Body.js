@@ -37,9 +37,10 @@ export default function Body() {
 	return data?.length === 0 ? (
 		<Shimmer />
 	) : (
-		<div className="bodydiv">
-			<div className="searchbar">
+		<div className="flex flex-col w-[1000]">
+			<div className="self-center flex gap-5">
 				<input
+					className="border-2 solid w-lg mt-1.5 pl-2.5 rounded-lg h-7"
 					type="text"
 					placeholder="search"
 					value={searchText}
@@ -48,6 +49,7 @@ export default function Body() {
 					}}
 				></input>
 				<button
+					className="border-2 solid rounded-lg px-2 mt-1.5"
 					onClick={() => {
 						const newList = data.filter((res) =>
 							res.info.name
@@ -60,19 +62,21 @@ export default function Body() {
 					Search
 				</button>
 			</div>
-			<div className="filter">
+			<div className="items-start border-2 border-solid w-25 mt-2.5 text-center ml-10 rounded-2xl">
 				<button onClick={filterData}>Top Rated</button>
 			</div>
-			<div className="cardholder">
-				{filData.map((rescard) => (
-					<Link
-						className="cardTag"
-						to={"/restaurant/" + rescard.info.id}
-						key={rescard.info.id}
-					>
-						<Card resCard={rescard} />
-					</Link>
-				))}
+			<div>
+				<div className="flex flex-wrap w=[1000px] ml-2.5">
+					{filData.map((rescard) => (
+						<Link
+							className="cardTag"
+							to={"/restaurant/" + rescard.info.id}
+							key={rescard.info.id}
+						>
+							<Card resCard={rescard} />
+						</Link>
+					))}
+				</div>
 			</div>
 		</div>
 	);

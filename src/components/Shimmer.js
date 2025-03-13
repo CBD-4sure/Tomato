@@ -1,3 +1,5 @@
+
+
 export default function Shimmer() {
 	return (
 		<div className="shimdiv">
