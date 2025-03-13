@@ -12,7 +12,7 @@ export default function MenuCard({ menuItem }) {
 					<div>
 						<h2>{name}</h2>
 					</div>
-					<div>Rating {ratings.aggregatedRating.rating} Star</div>
+					<div>{ratings.aggregatedRating.rating ? `Rating ${ratings.aggregatedRating.rating} Star` : ""}</div>
 					<div>
 						<h3 style={{ marginBottom: "5px", marginTop: "5px" }}>
 							Rs. {(defaultPrice ? defaultPrice:price) / 100}
@@ -29,7 +29,8 @@ export default function MenuCard({ menuItem }) {
 					className="imgres"
 					style={{ height: "150px", width: "280px", alignSelf:"center" }}
 				>
-					<img src={imgUrl + imageId}></img>
+					{imageId ? <img src={imgUrl + imageId}></img>:"" }
+					
 				</div>
 			</div>
 		</div>

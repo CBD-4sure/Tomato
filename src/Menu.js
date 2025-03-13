@@ -1,21 +1,13 @@
-import { useEffect, useState } from "react";
-import { MENU_API } from "./utils/data";
 import { useParams } from "react-router";
 import MenuShimmer from "./components/MenuShimmer";
 import { imgUrl } from "./utils/data";
 import MenuCard from "./components/MenuCard";
+import useFetchMenu from "./utils/useFetchMenu";
 
 export default function () {
-	const [menudata, setMenuData] = useState(null);
+
 	const { resId } = useParams();
-	useEffect(() => {
-		const fetchMenuData = async () => {
-			const response = await fetch(MENU_API + resId);
-			const data = await response.json();
-			setMenuData(data);
-		};
-		fetchMenuData();
-	}, []);
+	const menudata = useFetchMenu(resId);
 
 	const menuList =
 		menudata?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
