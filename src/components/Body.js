@@ -69,7 +69,6 @@ export default function Body() {
 				<div className="flex flex-wrap w-auto ml-2.5">
 					{filData.map((rescard) => (
 						<Link
-							className="cardTag"
 							to={"/restaurant/" + rescard.info.id}
 							key={rescard.info.id}
 						>

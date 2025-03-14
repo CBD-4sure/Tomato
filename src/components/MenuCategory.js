@@ -1,9 +1,8 @@
-import { useState } from "react";
-import MenuCard from "./MenuCard";
+import MenuCard, { bestsellerMenuCard } from "./MenuCard";
 
 export default function MenuCategory({ category, handleCategory }) {
 	const menuList = category.card?.card?.itemCards;
-
+	const BestMenuCard = bestsellerMenuCard(MenuCard);
 	return (
 		<div>
 			<div className="flex flex-col my-3 p-4 rounded-xl border-1">
@@ -53,7 +52,7 @@ export default function MenuCategory({ category, handleCategory }) {
 				<div>
 					{category?.expanded &&
 						menuList?.map((item) => (
-							<MenuCard key={item.card.info.id} menuItem={item} />
+							item.card.info?.isBestseller ? <BestMenuCard key={item.card.info.id} menuItem={item} /> :<MenuCard key={item.card.info.id} menuItem={item} />
 						))}
 				</div>
 			</div>

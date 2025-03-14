@@ -28,7 +28,7 @@ export default function MenuCard({ menuItem }) {
 						</h3>
 					</div>
 					<div>
-						<p className="my-1 pr-2">
+						<p className="my-1 pr-2 w-[630px]">
 							{description}
 						</p>
 					</div>
@@ -47,4 +47,21 @@ export default function MenuCard({ menuItem }) {
 			</div>
 		</div>
 	);
+}
+
+export function bestsellerMenuCard(MenuCard){
+    return((props)=>{
+
+        return (
+            <div>
+                <div className="absolute ml-[670px] mt-8 bg-black text-white px-1">
+                    <label>Bestseller</label>
+                </div>
+                <div>
+                    <MenuCard {...props}/>
+                </div>
+				
+            </div>
+        )
+    })
 }
