@@ -7,8 +7,8 @@ export default function Header() {
 	const [btnLogin, setBtnLogin] = useState("Login");
 
 	return (
-		<div className="header">
-			<div className="logo">
+		<div className="flex justify-between w-[1000px] items-center">
+			<div className="w-3xs h-28">
 				<Link to={"/"}>
 					<img
 						src={logo}
@@ -22,18 +22,19 @@ export default function Header() {
 				</Link>
 			</div>
 
-			<div className="login">
-				<div>
+			<div className="flex">
+				<div className="m-2">
 					<Link to={"/"}>Home</Link>
 				</div>
-				<div>
+				<div className="m-2">
 					<Link to={"/contact"}>Contact</Link>
 				</div>
-				<div>
+				<div className="m-2">
 					<Link to={"/about"}>About</Link>
 				</div>
 				<div>
 					<button
+						className="m-2 w-14"
 						onClick={() => {
 							btnLogin === "Login"
 								? setBtnLogin("Logout")
