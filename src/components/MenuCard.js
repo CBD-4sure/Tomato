@@ -7,7 +7,7 @@ export default function MenuCard({ menuItem }) {
 	return (
 		<div className="flex flex-col gap-5">
 			<div className="border-2 border-solid border-red-500 mt-2.5"></div>
-			<div className="flex justify-between px-4 w-[900px] h-auto rounded-2xl">
+			<div className="flex justify-between px-4 w-auto h-auto rounded-2xl">
 				<div className="w-[730px]">
 					<div>
 						<h2 className="text-lg">

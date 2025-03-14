@@ -66,7 +66,7 @@ export default function Body() {
 				<button onClick={filterData}>Top Rated</button>
 			</div>
 			<div>
-				<div className="flex flex-wrap w=[1000px] ml-2.5">
+				<div className="flex flex-wrap w-auto ml-2.5">
 					{filData.map((rescard) => (
 						<Link
 							className="cardTag"

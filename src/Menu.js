@@ -1,25 +1,59 @@
 import { useParams } from "react-router";
 import MenuShimmer from "./components/MenuShimmer";
 import { imgUrl } from "./utils/data";
-import MenuCard from "./components/MenuCard";
 import useFetchMenu from "./utils/useFetchMenu";
+import MenuCategory from "./components/MenuCategory";
+import { useState, useEffect } from "react";
 
 export default function () {
 	const { resId } = useParams();
 	const menudata = useFetchMenu(resId);
+	const [menuCatogories, setMenuCategories] = useState([]);
+	useEffect(() => {
+		const menuCatogories =
+			menudata?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+				.filter(
+					(c) =>
+						c.card?.card?.["@type"] ===
+						"type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+				)
+				.map((item) => {
+					return {
+						...item,
+						expanded: false,
+					};
+				});
 
-	const menuList =
-		menudata?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-			?.card?.card?.itemCards;
-	console.log(menudata);
+		setMenuCategories(menuCatogories);
+	}, [menudata]);
 	const menuRes = menudata?.data?.cards[2]?.card?.card?.info;
-	console.log(menuRes);
+
+	const handleCategory = (category) => {
+		const updatedMenuCategories = menuCatogories.map((existingCategory) => {
+			if (
+				category.card.card.categoryId ===
+				existingCategory.card.card.categoryId
+			) {
+				return {
+					...existingCategory,
+					expanded: !category.expanded,
+				};
+			} else {
+				return {
+					...existingCategory,
+					expanded: false,
+				};
+			}
+		});
+		setMenuCategories(updatedMenuCategories);
+	};
+
 	return menudata === null ? (
 		<MenuShimmer />
 	) : (
 		<div className="flex flex-col items-center">
-			<div className="rounded-2xl bg-red-400 p-3 w-[1000px]">
-				<div className="flex justify-between rounded-2xl bg-amber-50 p-5">
+			<div className="rounded-2xl bg-red-400 p-3 w-[1000px] mb-3">
+				<div className="flex justify-between rounded-2xl bg-white p-5">
 					<div className="flex flex-col gap-7">
 						<div>
 							<h1 className="text-2xl mb-3">
@@ -51,11 +85,12 @@ export default function () {
 				</div>
 			</div>
 			<div className="flex flex-col w-[900px]">
-				<div className="my-8">
-					<h2 className="text-lg"> <strong>Top Recommended</strong></h2>
-				</div>
-				{menuList?.map((item) => (
-					<MenuCard key={item.card.info.id} menuItem={item} />
+				{menuCatogories?.map((category) => (
+					<MenuCategory
+						key={category.card.card.categoryId}
+						category={category}
+						handleCategory={handleCategory}
+					/>
 				))}
 			</div>
 		</div>
