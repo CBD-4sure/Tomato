@@ -17,8 +17,8 @@ export default function Card({ resCard }) {
 			<div className="w-[300px] h-[240px] overflow-hidden rounded-lg">
 				<img className="object-cover w-[100%] h-[100%]" src={imgUrl + cloudinaryImageId}></img>
 			</div>
-			<div className="flex flex-col p-2.5">
-				<div className="flex justify-between">
+			<div className="flex flex-col p-2.5 ">
+				<div className="flex justify-between ">
 					<div className="text-lg">
 						<strong>{name}</strong>
 					</div>
