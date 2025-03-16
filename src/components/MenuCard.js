@@ -1,8 +1,16 @@
+import { useDispatch } from "react-redux";
 import { imgUrl } from "../utils/data";
+import { addItem } from "../utils/cartSlice";
 
 export default function MenuCard({ menuItem }) {
 	const { name, defaultPrice, price, description, ratings, imageId } =
 		menuItem.card.info;
+
+	const dispatch = useDispatch();
+
+	const handleAdd = () => {
+		dispatch(addItem(menuItem));
+	};
 
 	return (
 		<div className="flex flex-col gap-5">
@@ -28,9 +36,7 @@ export default function MenuCard({ menuItem }) {
 						</h3>
 					</div>
 					<div>
-						<p className="my-1 pr-2 w-[630px]">
-							{description}
-						</p>
+						<p className="my-1 pr-2 w-[630px]">{description}</p>
 					</div>
 				</div>
 
@@ -44,24 +50,28 @@ export default function MenuCard({ menuItem }) {
 						""
 					)}
 				</div>
+				<div
+					className="absolute ml-[770px] border-1 cursor-pointer bg-white text-green-600 px-4 py-1  rounded-lg"
+					onClick={handleAdd}
+				>
+					<button className="cursor-pointer">ADD</button>
+				</div>
 			</div>
 		</div>
 	);
 }
 
-export function bestsellerMenuCard(MenuCard){
-    return((props)=>{
-
-        return (
-            <div>
-                <div className="absolute ml-[670px] mt-8 bg-black text-white px-1">
-                    <label>Bestseller</label>
-                </div>
-                <div>
-                    <MenuCard {...props}/>
-                </div>
-				
-            </div>
-        )
-    })
+export function bestsellerMenuCard(MenuCard) {
+	return (props) => {
+		return (
+			<div>
+				<div className="absolute ml-[670px] mt-8 bg-black text-white px-1">
+					<label>Bestseller</label>
+				</div>
+				<div>
+					<MenuCard {...props} />
+				</div>
+			</div>
+		);
+	};
 }

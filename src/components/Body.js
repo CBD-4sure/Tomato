@@ -16,7 +16,6 @@ export default function Body() {
 				const newRes = json?.data?.cards.find(
 					(item) => item?.card?.card?.id == "restaurant_grid_listing"
 				)?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-				console.log(newRes);
 				setData(newRes);
 				setFilData(newRes);
 			} catch (error) {

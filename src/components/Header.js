@@ -2,9 +2,11 @@
 import { useState } from "react";
 import logo from "../assets/image.png";
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
 
 export default function Header() {
 	const [btnLogin, setBtnLogin] = useState("Login");
+	const cartItems = useSelector((state) => state.cart.items);
 
 	return (
 		<div className="flex justify-between w-[1000px] items-center">
@@ -31,6 +33,9 @@ export default function Header() {
 				</div>
 				<div className="m-2">
 					<Link to={"/about"}>About</Link>
+				</div>
+				<div className="m-2">
+					<Link to={"/cart"}>Cart({cartItems.length})</Link>
 				</div>
 				<div>
 					<button
