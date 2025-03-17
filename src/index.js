@@ -1,4 +1,4 @@
-import React, { lazy, StrictMode, Suspense, useState } from "react";
+import React, { lazy, StrictMode, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router";
