@@ -14,8 +14,10 @@ export default function Body() {
 				const data = await fetch(URL);
 				const json = await data.json();
 				const newRes = json?.data?.cards.find(
-					(item) => item?.card?.card?.id == "restaurant_grid_listing"
+					(item) =>
+						item?.card?.card?.id == "restaurant_grid_listing_v2"
 				)?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
 				setData(newRes);
 				setFilData(newRes);
 			} catch (error) {
@@ -66,7 +68,7 @@ export default function Body() {
 			</div>
 			<div>
 				<div className="flex flex-wrap w-auto ml-2.5">
-					{filData.map((rescard) => (
+					{filData?.map((rescard) => (
 						<Link
 							to={"/restaurant/" + rescard.info.id}
 							key={rescard.info.id}
