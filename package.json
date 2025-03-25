@@ -5,8 +5,8 @@
   "scripts": {
     "test": "jest",
     "dev": "npx parcel src/index.html",
-    "predeploy": "npx parcel build src/index.html",
-    "deploy": "gh-pages -d dist"
+    "prebuild": "npx parcel build src/index.html",
+    "build": "npx serve dist"
   },
   "repository": {
     "type": "git",

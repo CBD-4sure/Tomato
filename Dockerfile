@@ -1,9 +1,13 @@
-FROM node
-
-COPY . ./tomato
+FROM node:latest
 
 WORKDIR /tomato
 
+COPY package.json package-lock.json ./
+
 RUN npm install
 
-EXPOSE 1234
+COPY . .
+
+EXPOSE 3000
+
+CMD [ "npm","run","build" ]
