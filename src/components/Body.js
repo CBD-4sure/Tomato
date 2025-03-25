@@ -13,11 +13,7 @@ export default function Body() {
 			try {
 				const data = await fetch(URL);
 				const json = await data.json();
-				const newRes = json?.data?.cards.find(
-					(item) =>
-						item?.card?.card?.id == "restaurant_grid_listing_v2"
-				)?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
+				const newRes = json.map((item) => item.data);
 				setData(newRes);
 				setFilData(newRes);
 			} catch (error) {

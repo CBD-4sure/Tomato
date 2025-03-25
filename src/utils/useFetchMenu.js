@@ -6,7 +6,7 @@ export default function useFetchMenu(resId){
 
     useEffect(() => {
 		const fetchMenuData = async () => {
-			const response = await fetch(MENU_API + resId);
+			const response = await fetch(MENU_API + `${resId}`);
 			const data = await response.json();
 			setMenuData(data);
 		};

@@ -11,22 +11,17 @@ export default function () {
 	const [menuCatogories, setMenuCategories] = useState([]);
 	useEffect(() => {
 		const menuCatogories =
-			menudata?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-				.filter(
-					(c) =>
-						c.card?.card?.["@type"] ===
-						"type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-				)
+			menudata?.menudata
 				.map((item) => {
 					return {
-						...item,
+						...item.data,
 						expanded: false,
 					};
 				});
 
 		setMenuCategories(menuCatogories);
 	}, [menudata]);
-	const menuRes = menudata?.data?.cards[2]?.card?.card?.info;
+	const menuRes = menudata?.resData[0].data.info;
 
 	const handleCategory = (category) => {
 		const updatedMenuCategories = menuCatogories.map((existingCategory) => {
